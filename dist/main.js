@@ -889,10 +889,10 @@ var fillSortedMap = function fillSortedMap(map, firstDate) {
   var nextDate = firstDate;
 
   for (var i = 0; i < 7; i++) {
+    nextDate = moment(nextDate).add(1, "days");
     var timeString = moment(nextDate).format("YYYY-MM-DD");
     var mapKey = timeString.substring(0, 10);
     sortedMap[mapKey] = map[mapKey] ? map[mapKey] : [];
-    nextDate = moment(nextDate).add(1, "days");
   }
 
   return sortedMap;

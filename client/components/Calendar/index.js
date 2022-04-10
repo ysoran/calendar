@@ -22,10 +22,10 @@ const fillSortedMap = (map, firstDate) => {
   const sortedMap = [];
   let nextDate = firstDate;
   for (let i = 0; i < 7; i++) {
+    nextDate = moment(nextDate).add(1, "days");
     const timeString = moment(nextDate).format("YYYY-MM-DD");
     const mapKey = timeString.substring(0, 10);
     sortedMap[mapKey] = map[mapKey] ? map[mapKey] : [];
-    nextDate = moment(nextDate).add(1, "days");
   }
 
   return sortedMap;
